@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- User interaction prompt -->
+    <div id="start-screen" style="z-index: 30;">
+        <button id="start-btn">Tap to see the surprise! 🎉</button>
+    </div>
+
+    <!-- Countdown Timer -->
+    <div id="countdown-container" class="hidden">
+        <h1 id="countdown">10</h1>
+    </div>
+
+    <!-- Celebration Elements -->
+    <div id="celebration-container" class="hidden">
+        <img src="resources/singing-cat.gif" id="singing-cat" class="hidden" width="200">
+        <video id="video" class="hidden" width="200">
+            <source src="resources/video.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <h1 id="birthday-message" class="hidden">Happy Birthday, <span>My Love!</span> ❤️🎉</h1>
+        <p id="birthday-message2" class="hidden"> On this special day, I just want to remind you how incredibly precious you are to me. From your beautiful smile to your kind heart, everything about you makes my world brighter.
+            Every moment with you is a gift, and I feel so lucky to have you in my life.Today, I celebrate you—your dreams, your happiness, and all the love you bring into my life. May this year bring you endless joy, laughter, and success in everything you do.</p>
+        <img src="resources/kiss.gif" id="kissing-gif" class="hidden" width="200">
+    </div>
+
+    <!-- Moving Photos -->
+    <div id="photo-rows-container" class="hidden"></div>
+
+    <audio id="birthday-song" src="resources/happy-birthday.mp3"></audio>
+    <audio id="kiss-sound" src="resources/kiss.mp3"></audio>
+    <audio id="song" src="resources/song.mp3"></audio>
+
+    <script src="script.js"></script>
+    <script>
+        const photoPaths = [
+            'resources/photos/photo1.jpg',
+            'resources/photos/photo2.jpg',
+            'resources/photos/photo3.jpg',
+            'resources/photos/photo4.jpg',
+            'resources/photos/photo5.jpg',
+            'resources/photos/photo6.jpg',
+            'resources/photos/photo7.jpg',
+            'resources/photos/photo8.jpg',
+            'resources/photos/photo9.jpg',
+            'resources/photos/photo10.jpg',
+            'resources/photos/photo11.jpg',
+            'resources/photos/photo12.jpg',
+            'resources/photos/photo13.jpg',
+            'resources/photos/photo14.jpg',
+            'resources/photos/photo15.jpg',
+            'resources/photos/photo16.jpg',
+            'resources/photos/photo17.jpg',
+            'resources/photos/photo18.jpg',
+            'resources/photos/photo19.jpg',
+            'resources/photos/photo20.jpg',
+            'resources/photos/photo21.jpg'
+        ];
+
+        function getRandomPhotos(count) {
+            const shuffled = photoPaths.sort(() => 0.5 - Math.random());
+            return shuffled.slice(0, count);
+        }
+
+        function createPhotoRow(direction) {
+            const row = document.createElement('div');
+            row.classList.add('photo-row', direction);
+
+            const photos = getRandomPhotos(12);
+            photos.forEach(photo => {
+                const img = document.createElement('img');
+                img.src = photo;
+                img.classList.add('photo');
+                row.appendChild(img);
+            });
+
+            return row;
+        }
+
+        const container = document.getElementById('photo-rows-container');
+        const directions = ['move-left', 'move-right'];
+
+        for (let i = 0; i < 6; i++) {
+            const direction = directions[i % 2];
+            const row = createPhotoRow(direction);
+            container.appendChild(row);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,181 @@
+/* General Page Styling */
+body {
+    background-color: #f8becf;
+    color: black;
+    font-family: "Poppins", sans-serif;
+    overflow: hidden;
+}
+
+/* Start Button */
+#start-screen {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 30; /* Ensure it is above other elements */
+}
+
+#start-btn {
+    background-color: black;
+    color: white;
+    font-size: 20px;
+    padding: 15px 30px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+#start-btn:hover {
+    background-color: #333;
+    transform: scale(1.1);
+}
+
+#start-btn:active {
+    background-color: #555;
+    transform: scale(1.05);
+}
+
+/* Countdown */
+#countdown-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 100px;
+    font-weight: bold;
+   
+}
+
+/* Celebration Styling */
+.hidden {
+    display: none;
+} 
+
+/* Singing Cat */
+#singing-cat {
+    position: fixed;
+    width: 280px;
+    height: auto;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* z-index: 20; */
+    
+}
+
+/* Centered Birthday Message and Cake */
+#celebration-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 15;
+}
+
+#birthday-message {
+    font-size: 32px; /* Adjusted size */
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 10px;
+    z-index: 20;
+}
+
+/* #birthday-message span{
+    background-color: #e11f59;
+    padding: 10px;
+    border-radius: 10px;
+    font-weight: bold;
+    color: white;
+} */
+
+#birthday-cake {
+    width: 200px; /* Adjusted size */
+    height: auto;
+    z-index: 20;
+}
+
+#kissing-gif {
+    position: fixed;
+    width: 280px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 20;
+    
+}
+
+#birthday-message2 {
+    z-index: 20;
+    border: 1px dashed black;
+    padding: 10px;
+    font-size: 16px; /* Adjusted size */
+}
+
+/* Moving Photos */
+#photo-rows-container {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Ensure no spaces between rows */
+    z-index: 20;
+}
+
+.photo-row {
+    width: 200%; /* Double the width to ensure continuous movement */
+    display: flex;
+    justify-content: space-between; /* Ensure no spaces between photos */
+}
+
+.photo {
+    width: 100px;
+    height: auto;
+    opacity: 0.18; /* Reduce opacity */
+    margin: 0; /* Remove any default margin */
+}
+
+.move-left {
+    animation: moveLeft 15s linear infinite;
+}
+
+.move-right {
+    animation: moveRight 15s linear infinite;
+}
+
+@keyframes moveLeft {
+    0% {
+        transform: translateX(0%);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+@keyframes moveRight {
+    0% {
+        transform: translateX(-50%);
+    }
+    100% {
+        transform: translateX(0%);
+    }
+}
+
+/* Responsive adjustments for mobile view */
+@media (max-width: 600px) {
+    #birthday-message {
+        font-size: 24px; /* Smaller size for mobile */
+    }
+
+    #birthday-cake {
+        width: 150px; /* Smaller size for mobile */
+    }
+
+    #birthday-message2 {
+        font-size: 16; /* Smaller size for mobile */
+    }
+}
